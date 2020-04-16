@@ -4,7 +4,7 @@
 number = int(input('Это программа найдет наибольшую цифру в числе, которую вы введете: '))
 
 a = 0
-while number > 10:
+while number > 0:
     residue = number % 10
     number //= 10
     if residue > a:
