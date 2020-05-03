@@ -34,7 +34,7 @@ with open('text_7.txt', 'r') as file:
     result.append({'Средняя прибыль': round(prof_aver)})
 
 with open('task_7.json', 'w') as file_json:
-    json.dump(result, file_json, ensure_ascii=False)
-    js_str = json.dumps(result, ensure_ascii=False)
+    json.dump(result, file_json, ensure_ascii=False, indent=4)
+    js_str = json.dumps(result, ensure_ascii=False, indent=4)
     print(f'\nСоздан файл с расширением json: \n \n \n'
           f' {js_str}')
