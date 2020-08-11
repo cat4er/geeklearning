@@ -12,8 +12,8 @@ place1 = num1 - 96
 place2 = num2 - 96
 
 if num1 > num2:
-    q = num1 - num2
+    q = num1 - num2 - 1
 else:
-    q = num2 - num1
+    q = num2 - num1 - 1
 
 print(f'Буква "{letter1}" в алфавите {place1}-ая, а "{letter2}" - {place2}-ая, между ними {q} букв(ы)')
