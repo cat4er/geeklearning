@@ -18,13 +18,10 @@ def add_null(a, b):
     if len(a) > len(b):
         for i in range(len(a) - len(b)):
             b.appendleft('0')
-        return a, b
     elif len(a) < len(b):
         for i in range(len(b) - len(a)):
             a.appendleft('0')
-        return a, b
-    else:
-        return a, b
+    return a, b
 
 
 x = list(input('Введите 1-е шестнадцатиричное число: ').upper())
