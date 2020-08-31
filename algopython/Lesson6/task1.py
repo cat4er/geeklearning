@@ -31,6 +31,12 @@ def max_negative(array):
     if max_negative_num == 0:
         return 'В списке нет отрицательных чисел'
     else:
+        _variable = []  # подсчет переменных
+        for i in dir():  # возвращает имена из локальной области программы
+            if i[0] != '_' and not hasattr(locals()[i], '__name__'):  # отфильтровываем от кишок
+                _variable.append(locals()[i])  # ну и добавляем в списко
+        print('Использовано памяти через getsizeof: ', memory_usage(_variable))
+        print('Использовано памяти через балагрку: ', show(_variable))
         return max_negative_num
 
 
@@ -94,15 +100,6 @@ def memory_usage(array):
     for i in array:
         total_memory = total_memory + sys.getsizeof(i)
     return total_memory
-
-
-def local_var():
-    _variable = []  # подсчет переменных
-    for i in dir():  # возвращает имена из локальной области программы
-        if i[0] != '_' and not hasattr(locals()[i], '__name__'):  # отфильтровываем от кишок
-            _variable.append(locals()[i])  # ну и добавляем в списко
-    print('Использовано памяти через getsizeof: ', memory_usage(_variable))
-    print('Использовано памяти через балагрку: ', show(_variable))
 
 
 # тайминг после внедрения  подсчета переменных:
