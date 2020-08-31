@@ -31,13 +31,6 @@ def max_negative(array):
     if max_negative_num == 0:
         return 'В списке нет отрицательных чисел'
     else:
-
-        _variable = []  # подсчет переменных
-        for i in dir():  # возвращает имена из локальной области программы
-            if i[0] != '_' and not hasattr(locals()[i], '__name__'):  # отфильтровываем от кишок
-                _variable.append(locals()[i])  # ну и добавляем в списко
-        print('Использовано памяти через getsizeof: ', memory_usage(_variable))
-        print('Использовано памяти через балагрку: ', show(_variable))
         return max_negative_num
 
 
@@ -53,7 +46,7 @@ def max_negative2(array):
 
     _variable = []  # подсчет переменных
     for i in dir():  # возвращает имена из локальной области программы
-        if i[0] != '_' and not hasattr(locals()[i], '__name__'):  # отфильтровываем от кишок 
+        if i[0] != '_' and not hasattr(locals()[i], '__name__'):  # отфильтровываем от кишок
             _variable.append(locals()[i])  # ну и добавляем в списко
     print('Использовано памяти через getsizeof: ', memory_usage(_variable))
     print('Использовано памяти через балагрку: ', show(_variable))
@@ -103,6 +96,15 @@ def memory_usage(array):
     return total_memory
 
 
+def local_var():
+    _variable = []  # подсчет переменных
+    for i in dir():  # возвращает имена из локальной области программы
+        if i[0] != '_' and not hasattr(locals()[i], '__name__'):  # отфильтровываем от кишок
+            _variable.append(locals()[i])  # ну и добавляем в списко
+    print('Использовано памяти через getsizeof: ', memory_usage(_variable))
+    print('Использовано памяти через балагрку: ', show(_variable))
+
+
 # тайминг после внедрения  подсчета переменных:
 # print(timeit('max_negative(lst)', number=1000, globals=globals()))   # 0.054074985000000006
 # print(timeit('max_negative2(lst)', number=1000, globals=globals()))  # 0.04200433199999999
@@ -126,4 +128,3 @@ print(max_negative3(lst))
 # Прогамма №3 была несколько медленне, чем №2, но при этом все манипуляции выполняла налету, используя внутристроенные
 # функции,сохраняя минимум переменных в памяти.
 # Если б мне пришлось выбирать решение для прома, я бы выбрал вариант №3 за простоту и экономию ресурсов
-
